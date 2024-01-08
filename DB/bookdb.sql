@@ -47,7 +47,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `MyLibrary`;
-INSERT INTO `book` (`id`, `name`, `author`, `genre`, `format`, `length`, `description`) VALUES (1, 'Name of the Wind', 'Patrick Rothfuss', 'fantasy', 'audiobook', 35, 'a good story');
+INSERT INTO `book` (`id`, `name`, `author`, `genre`, `format`, `length`, `description`) VALUES (1, 'A wise mans fear', 'Patrick Rothfuss', 'fantasy', 'audiobook', 40, 'a very good story');
+INSERT INTO `book` (`id`, `name`, `author`, `genre`, `format`, `length`, `description`) VALUES (2, 'Name of the Wind', 'Patrick Rothfuss', 'fantasy', 'audiobook', 35, 'a good story');
 
 COMMIT;
 
