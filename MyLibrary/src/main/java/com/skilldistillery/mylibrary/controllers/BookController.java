@@ -40,17 +40,17 @@ public class BookController {
 	}
 
 	@PostMapping("books/createdBook")
-	public Book create(@RequestBody Book createdBook, HttpServletResponse hsr, Integer bookId) {
+	public Book create(@RequestBody Book newBook, HttpServletResponse hsr, Integer bookId) {
 		try {
-			createdBook = bookService.create(createdBook, bookId);
-			hsr.setStatus(201);
-			hsr.setHeader("Location", "http://localhost:8083/api/books");
-		} catch (Exception e) {
-			e.printStackTrace();
-			hsr.setStatus(400);
-			createdBook = null;
-		}
-		return createdBook;
+	        Book createdBook = bookService.create(newBook, bookId);
+	        hsr.setStatus(201);
+	        hsr.setHeader("Location", "http://localhost:8083/api/books");
+	        return createdBook;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        hsr.setStatus(400);
+	        return null;
+	    }
 	}
 
 	@PutMapping("books/{bookId}")
