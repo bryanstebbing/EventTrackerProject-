@@ -22,7 +22,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public Book create(Book book, Integer bookId) {
+	public Book create(Book book) {
         if (book.getName() == null || book.getName().isEmpty()) {
             throw new IllegalArgumentException("Book name cannot be empty.");
 		}

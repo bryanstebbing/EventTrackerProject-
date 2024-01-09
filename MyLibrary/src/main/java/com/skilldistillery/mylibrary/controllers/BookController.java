@@ -39,10 +39,10 @@ public class BookController {
 		return book;
 	}
 
-	@PostMapping("books/createdBook")
-	public Book create(@RequestBody Book newBook, HttpServletResponse hsr, Integer bookId) {
+	@PostMapping("books")
+	public Book create(@RequestBody Book newBook, HttpServletResponse hsr) {
 		try {
-	        Book createdBook = bookService.create(newBook, bookId);
+	        Book createdBook = bookService.create(newBook);
 	        hsr.setStatus(201);
 	        hsr.setHeader("Location", "http://localhost:8083/api/books");
 	        return createdBook;

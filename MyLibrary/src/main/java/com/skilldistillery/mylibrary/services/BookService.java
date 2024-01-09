@@ -8,7 +8,7 @@ public interface BookService {
 	
 	List<Book> getAllBooks();
 	Book show(int bookId);
-	Book create(Book book, Integer bookId);
+	Book create(Book book);
 	Book update(int bookId, Book book);
 	boolean deleteById(int bookId);
 	List<Book> searchByKeyword(String keyword);
