@@ -1,0 +1,78 @@
+body {
+	background-image: url("https://cdn.openart.ai/stable_diffusion/97a6019a0f2a8685ebfce472d12b5ee9b4d52e5a_2000x2000.webp");
+	background-color: lightslategrey;
+	background-repeat: no-repeat;
+	height: 2060px;
+	background-size: cover;
+
+}
+
+#addBookForm {
+	margin-left: 40%
+}
+
+#description {
+	font-family: fantasy;
+}
+
+#submitbtn {
+	font-family: fantasy;
+}
+
+#gameLabel {
+	font-family: fantasy;
+	text-decoration: none;
+	color: ghostwhite;
+}
+
+
+h1 {
+	font-family: fantasy;
+	color: rgb(0, 0, 0);
+	font-size: 70px;
+	margin-bottom: .01cm;
+	padding-bottom: 0cm;
+	text-align: center;
+}
+
+h3 {
+	font-family: fantasy;
+	color: rgb(0, 0, 0);
+	margin-top: .1cm;
+	text-align: center;
+
+}
+
+#bookLibraryDiv {
+	color: whitesmoke;
+	font-family: fantasy;
+	background-color: aliceblue;
+}
+
+table {
+	background-color: rgba(12, 87, 0);
+	width: auto;
+
+}
+
+input {
+	font-family: fantasy;
+}
+
+#searchBtn{
+		font-family: fantasy;
+
+}
+
+th {
+	text-decoration: underline;
+}
+
+#keyword {
+	color: black;
+	font-family: fantasy;
+}
+
+#searchkeyword {
+	padding-top: .3cm;
+}

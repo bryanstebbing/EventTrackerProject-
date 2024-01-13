@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title> My Readling list</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/script.js"></script>
+</head>
+
+<body>
+	<h1>Welcome to My Library</h1>
+	<h3>Here you will find my collection of books in various formats and languages</h3><br>
+
+	<input type="text" id="keyword" placeholder="Search...">
+	<button id="searchBtn">Search</button>
+
+	<!-- Form for adding a book  START-->
+	<h3 id="createTitle">Add a book to the library</h3><br>
+
+	<form id="addBookForm" name="bookInfo">
+		<input type="text" name="name" placeholder="Title of Book" /><br>
+		<input type="text" name="author" placeholder="Authors Name" /><br>
+		<input type="text" name="genre" placeholder="Genre" /><br>
+		<input type="text" name="format" placeholder="Format" /><br>
+		<input type="number" name="length" placeholder="Length" /><br>
+		<textarea id="description" name="description" value="Description" placeholder="Description" rows="4"
+			cols="19"></textarea><br>
+		<input id="submitbtn" type="submit" class="btn btn-success dropdown-toggle" name="submit"
+			placeholder="Add Shipping" /><br>
+
+		<div id="content"></div>
+		<div id="errors"></div>
+	</form><br>
+	</div>
+	<!-- Form for adding a book END -->
+	<!-- Basic Display of Books START-->
+	<div id="bookLibraryDiv">
+		<table id="bookTable">
+			<thead>
+				<tr>
+					<th>ID </th>
+					<th>Title </th>
+					<th>Author </th>
+					<th>Genre </th>
+					<th>Format </th>
+					<th>Length </th>
+					<th>Descritpion</th>
+				</tr>
+			</thead>
+			<tbody id="bookListBody"></tbody>
+		</table>
+	</div><br>
+	<!-- Basic Display of Books END-->
+
+
+	<!-- Dragon game START-->
+	<a href="dragongame/dragongame.html">
+		<label id="gameLabel">Play a game and fight a Dragon!!!</label><br>
+		<input id="submit" class="btn btn-success dropdown-toggle" type="submit" value="Play!!">
+	</a>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
