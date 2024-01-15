@@ -84,29 +84,29 @@ function addToLibrary(book) {
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	let bookJson = JSON.stringify(book);
 	xhr.send(bookJson);
-	location.reload();
-
+	window.location.reload();
 }
 //Add a book END
 
 
 //Search for a book START
 function performSearch() {
-    let keyword = document.getElementById('searchInput').value;
-    console.log('Performing search for: ', keyword);
+	let keyword = document.getElementById('keyword').value;
+	console.log('Performing search for: ', keyword);
 	let xhr = new XMLHttpRequest();
-	xhr.open('GET', 'api/books/search/{keyword}');
+	xhr.open('GET', 'api/books/' + encodeURIComponent(keyword));
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			if (xhr.status === 200) {
+				console.log('*************************************************')
 				let keywordResults = JSON.parse(xhr.responseText);
-				displaybookLibrary(keywordResults);
+				searchForBook(keywordResults);
 			} else {
 				displayError("You've encountered the folllowing error: " + xhr.status);
 			}
+			window.location.reload();
 		}
 	};
-
 	xhr.send();
 }
 //Search for a book END
@@ -126,7 +126,7 @@ function deleteBook(bookId) {
 		}
 	};
 	xhr.send();
-	location.reload();
+	window.location.reload();
 
 }
 //Delete Book Function END
@@ -147,19 +147,19 @@ function updateBook(bookId, updatedData) {
 		}
 	};
 	xhr.send(JSON.stringify(updatedData));
-	location.reload();
+	window.location.reload();
 }
 //Update Book Function END
 
 //XHR code END
 
 
-//Loading books from the database start
+//Loading books from the database START
 function displaybookLibrary(bookLibrary) {
 	let tbody = document.getElementById('bookListBody');
 	for (let book of bookLibrary) {
 		let tr = document.createElement('tr');
-		tbody.appendChild(tr);
+		tbody.appendChild(tr);		
 		let td = document.createElement('td');
 		td.textContent = book.id;
 		tr.appendChild(td);
@@ -206,8 +206,55 @@ function displaybookLibrary(bookLibrary) {
 function getBookDetails(bookId) {
 	console.log('getting book info for ' + bookId);
 };
-//Loading books from the database start
+//Loading books from the database END
 
+//Search bar function and logic START
+function searchForBook(keywordResults) {
+    let searchResultsDiv = document.getElementById('searchResultsDiv');
+    
+    searchResultsDiv.innerHTML = '';
+
+    for (let book of keywordResults) {
+        let resultContainer = document.createElement('div');
+        resultContainer.classList.add('search-result');
+
+        let idElement = document.createElement('p');
+        idElement.textContent = `ID: ${book.id}`;
+        resultContainer.appendChild(idElement);
+
+        let titleElement = document.createElement('p');
+        titleElement.textContent = `Title: ${book.name}`;
+        resultContainer.appendChild(titleElement);
+
+        let authorElement = document.createElement('p');
+        authorElement.textContent = `Author: ${book.author}`;
+        resultContainer.appendChild(authorElement);
+        
+        let genreElement = document.createElement('p');
+        genreElement.textContent = `Genre: ${book.genre}`;
+        resultContainer.appendChild(genreElement);
+        
+        let formatElement = document.createElement('p');
+        formatElement.textContent = `Format: ${book.format}`;
+        resultContainer.appendChild(formatElement);
+        
+        let lengthElement = document.createElement('p');
+        lengthElement.textContent = `Length: ${book.length}`;
+        resultContainer.appendChild(lengthElement);
+        
+        let descriptionElement = document.createElement('p');
+        descriptionElement.textContent = `Description: ${book.description}`;
+        resultContainer.appendChild(descriptionElement);
+        
+        resultContainer.addEventListener('click', function(event) {
+            let clickedId = book.id;
+            getBookDetails(clickedId);
+        });
+
+        // Append the result container to searchResultsDiv
+        searchResultsDiv.appendChild(resultContainer);
+    }
+}
 
 //Checking data input into the create a book form start
 let verifyFormData = function(name, author, genre, format, length, description) {
@@ -285,14 +332,5 @@ let submitCB = function(e) {
 		form.reset();
 	}
 };
+
 //Checking data input into the create a book form end
-
-
-
-
-
-
-
-
-
-

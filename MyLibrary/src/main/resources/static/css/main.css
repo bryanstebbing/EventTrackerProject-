@@ -28,19 +28,20 @@ body {
 
 h1 {
 	font-family: fantasy;
-	color: rgb(0, 0, 0);
+	color: rgb(94, 94, 94);
 	font-size: 70px;
 	margin-bottom: .01cm;
 	padding-bottom: 0cm;
 	text-align: center;
+	text-shadow: 2px 2px lightslategray;
 }
 
 h3 {
 	font-family: fantasy;
-	color: rgb(0, 0, 0);
+	color: rgb(94, 94, 94);
 	margin-top: .1cm;
 	text-align: center;
-
+	text-shadow: 2px 2px lightslategray;
 }
 
 #bookLibraryDiv {
@@ -50,17 +51,30 @@ h3 {
 }
 
 table {
-	background-color: rgba(12, 87, 0);
-	width: auto;
+	background-color: rgba(52, 53, 53, .5);
+	width: 100%;
+	display: block;
+	padding-left: 50px;
+	text-align: center;
 
+}
+
+#bookListBody {
+	background-color: rgba(52, 53, 53, .5);
+	width: 100%;
+}
+
+#bookListBody tr {
+	margin-bottom: 40px;
+	margin-right: 40px;
 }
 
 input {
 	font-family: fantasy;
 }
 
-#searchBtn{
-		font-family: fantasy;
+#searchBtn {
+	font-family: fantasy;
 
 }
 
@@ -75,4 +89,12 @@ th {
 
 #searchkeyword {
 	padding-top: .3cm;
+}
+
+#gameLabel {
+	padding-left: 45%;
+}
+
+#gamesubmit {
+	margin-left: 50%;
 }
