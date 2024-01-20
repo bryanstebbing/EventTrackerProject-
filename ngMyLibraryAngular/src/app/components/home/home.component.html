@@ -1,0 +1,66 @@
+<h1>My Library</h1>
+
+<!-- Display Library -->
+<div *ngFor="let book of books">
+  <ul>
+    <li >{{book.name}}</li>
+    <li >{{book.author}}</li>
+    <li >{{book.genre}}</li>
+    <li >{{book.format}}</li>
+    <li >{{book.length}}</li>
+    <li >{{book.description}}</li>
+    <button (click)="deleteBook(book.id)" class="btn btn-danger">Delete</button>
+    <button (click)="setEditBook()" class="btn btn-warning">Update</button>
+  </ul>
+</div>
+
+<!-- Update book -->
+<div *ngIf="editBook">
+  <form *ngIf="editBook" (ngSubmit)="updateBook(editBook.id, editBook)" #editForm="ngForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="editBook.name"><br>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" [(ngModel)]="editBook.author"><br>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" [(ngModel)]="editBook.genre"><br>
+
+    <label for="format">Format</label>
+    <input type="text" id="format" name="format" [(ngModel)]="editBook.format"><br>
+
+    <label for="length">Length</label>
+    <input type="number" id="length" name="length" [(ngModel)]="editBook.length"><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" [(ngModel)]="editBook.description"></textarea><br>
+
+    <button type="button" (click)="editBook = null" class="btn btn-success">Cancel</button>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+
+<!-- Add a book -->
+<div id="book" *ngIf="!selected">
+  <form (ngSubmit)="createBook(createForm.value)" #createForm="ngForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="newBook.name"><br>
+
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" [(ngModel)]="newBook.author"><br>
+
+    <label for="genre">Genre:</label>
+    <input type="text" id="genre" name="genre" [(ngModel)]="newBook.genre"><br>
+
+    <label for="format">Format</label>
+    <input type="text" id="format" name="format" [(ngModel)]="newBook.format"><br>
+
+    <label for="length">Length</label>
+    <input type="number" id="length" name="length" [(ngModel)]="newBook.length"><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" [(ngModel)]="newBook.description"></textarea><br>
+
+    <button type="submit">Add Book To Library</button>
+  </form>
+</div>
