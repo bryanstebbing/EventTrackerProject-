@@ -30,6 +30,18 @@ export class HomeComponent implements OnInit {
     this.loadBooks();
   }
 
+getNumberOfBooks(): number{
+  return this.books.length;
+}
+
+selectBook(books: Book): void {
+  this.selected = books;
+}
+
+resetSelection(): void {
+  this.selected = null;
+}
+
   reload() {
     this.bookService.index().subscribe({
       next: (bookList) => {
@@ -59,7 +71,7 @@ export class HomeComponent implements OnInit {
   createBook(newBook: Book): void {
     this.bookService.create(newBook).subscribe({
       next: (data) => {
-        this.loadBooks;
+        this.loadBooks();
       },
       error: (err) => {
         console.log(err);
@@ -86,9 +98,9 @@ export class HomeComponent implements OnInit {
     this.editBook = Object.assign({}, this.selected);
   }
 
-  updateBook(id: number, editBook: Book): void {
+  updateBook(id: number, updateBook: Book): void {
     if (this.editBook) {
-      this.bookService.update(id, this.editBook).subscribe({
+      this.bookService.update(id, updateBook).subscribe({
         next: (editBook: any) => {
           this.reload();
           this.editBook = null;

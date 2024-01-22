@@ -1,8 +1,21 @@
-<h1>My Library</h1>
+<h1>My Library </h1>
+<h3>There are currently {{getNumberOfBooks()}} books in this Library</h3>
+
+<!-- Select a book -->
+<div *ngIf="selected">
+  <h2>    <li >{{selected.name}}</li></h2>
+    <li >{{selected.author}}</li>
+    <li >{{selected.genre}}</li>
+    <li >{{selected.format}}</li>
+    <li >{{selected.length}}</li>
+    <li >{{selected.description}}</li>
+    <button (click)="selected = null">Back</button>
+</div>
 
 <!-- Display Library -->
-<div *ngFor="let book of books">
+<div *ngFor="let book of books" (click)="selected = book">
   <ul>
+    <li >{{book.id}}</li>
     <li >{{book.name}}</li>
     <li >{{book.author}}</li>
     <li >{{book.genre}}</li>
@@ -17,6 +30,9 @@
 <!-- Update book -->
 <div *ngIf="editBook">
   <form *ngIf="editBook" (ngSubmit)="updateBook(editBook.id, editBook)" #editForm="ngForm">
+    <label for="id">Id:</label>
+    <input type="number" id="id" name="id" [(ngModel)]="editBook.id"><br>
+
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" [(ngModel)]="editBook.name"><br>
 
@@ -64,3 +80,5 @@
     <button type="submit">Add Book To Library</button>
   </form>
 </div>
+
+
